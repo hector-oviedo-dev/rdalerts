@@ -1,0 +1,48 @@
+<!--
+  Generated template for the AddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agregar/Asociar Dispositivo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <button ion-button full (click)="onScanClick()">SCANEAR CODIGO QR</button>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" text-center>Estado</ion-label>
+    </ion-item>
+    <ion-item>
+      <p text-center>{{stats}}</p>
+    </ion-item>
+  </ion-list>
+    <ion-title text-center>Informacion Del Dispositivo</ion-title>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" floating>Codigo QR</ion-label>
+      <ion-input [(ngModel)]="deviceid"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Nombre Del Dispositivo</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Descripcion</ion-label>
+      <ion-textarea ion-input [(ngModel)]="desc"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <button ion-button full (click)="onClick()">Guardar/Agregar</button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
