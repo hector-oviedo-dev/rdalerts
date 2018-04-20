@@ -89,22 +89,25 @@ export class HomePage {
   public onNotificationsResult(data) {
     if (data.success == "ok") {
       this.devices = [];
+      let checked = 0;
       for (let i = 0; i < data.result.length;i++) {
         let obj = {
+          id:data.result[i]._id,
           checked:data.result[i].CHECKED,
           color:"#cccccc",
           deviceid:data.result[i].DEVICEID,
           name:data.result[i].NAME,
           desc:data.result[i].DESC
         }
+        if (data.result[i].CHECKED) checked++;
         this.devices.push(obj);
       }
-      this.stats = "notificaciiones cargadas: " + data.result.length + " " + data.result[0].NAME;
+      this.stats = "notificaciiones: " + data.result.length + " vistas: " + checked;
     } else this.stats = data.errorMessage;
   }
 
-  public onCheck(deviceid) {
-    let data = { deviceid:deviceid }
+  public onCheck(id) {
+    let data = { id:id }
     this.services.doPost("http://10.10.2.162:777/checknotification",data).subscribe(
         res => { this.onNotificationCheckResult(res); },
         err => { this.stats = "Error: 404 Server Error"; }

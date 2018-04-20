@@ -24,13 +24,13 @@
 
 <div class="boxClass">
   <div *ngFor="let dev of devices" class="boxItem" [hidden]="dev.checked">
-    <ion-item class="boxHeader"><p class="boxHeaderContent">{{dev.name}}</p></ion-item>
+    <ion-item class="boxHeader"><p class="boxHeaderContent">{{dev.name}} {{dev.checked}}</p></ion-item>
 
     <ion-item class="boxBody"><p class="boxBodyContent">{{dev.desc}}</p></ion-item>
 
     <ion-item class="boxFooterItem">
       <div class="boxFooterContent">
-        <img src="assets/btncheck.png" alt="" *ngIf="!dev.active" (click)="onCheck(dev.deviceid)">
+        <img src="assets/btncheck.png" alt="" *ngIf="!dev.active" (click)="onCheck(dev.id)">
       </div>
     </ion-item>
 
