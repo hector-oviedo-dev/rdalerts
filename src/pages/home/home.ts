@@ -65,7 +65,7 @@ export class HomePage {
       uid:this.id,
       token:this.token,
     }
-    this.services.doPost("http://10.10.2.162:777/updatetoken",data).subscribe(
+    this.services.doPost("http://rdalerts.cloudno.de/updatetoken",data).subscribe(
         res => { this.onServiceResult(res); },
         err => { this.stats = "Error: 404 Server Error"; }
       );
@@ -81,7 +81,7 @@ export class HomePage {
   }
   public getNotifications() {
     let data = { uid:this.id }
-    this.services.doPost("http://10.10.2.162:777/getnotifications",data).subscribe(
+    this.services.doPost("http://rdalerts.cloudno.de/getnotifications",data).subscribe(
         res => { this.onNotificationsResult(res); },
         err => { this.stats = "Error: 404 Server Error"; }
       );
@@ -108,7 +108,7 @@ export class HomePage {
 
   public onCheck(id) {
     let data = { id:id }
-    this.services.doPost("http://10.10.2.162:777/checknotification",data).subscribe(
+    this.services.doPost("http://rdalerts.cloudno.de/checknotification",data).subscribe(
         res => { this.onNotificationCheckResult(res); },
         err => { this.stats = "Error: 404 Server Error"; }
       );

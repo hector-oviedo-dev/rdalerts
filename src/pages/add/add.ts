@@ -45,7 +45,7 @@ export class AddPage {
       name:this.name,
       desc:this.desc,
     }
-    this.services.doPost("http://10.10.2.162:777/updatedevice",data).subscribe(
+    this.services.doPost("http://rdalerts.cloudno.de/updatedevice",data).subscribe(
         res => { this.onServiceResult(res); },
         err => { this.stats = "Error: 404 Server Error"; }
       );
